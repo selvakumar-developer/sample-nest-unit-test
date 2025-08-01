@@ -3,7 +3,9 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { MappingService } from 'src/mapping/mapping.service';
 import { CreateUserDto } from './dto/create-user.dto';
+import { GetAllUserResponseDto } from './dto/get-all-user-response.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 
@@ -11,6 +13,8 @@ import { User } from './entities/user.entity';
 export class UserService {
   private users: User[] = [];
   private nextId = 1;
+
+  constructor(private readonly mappingService: MappingService) {}
 
   // CREATE - Add a new user
   create(createUserDto: CreateUserDto): User {
@@ -34,8 +38,12 @@ export class UserService {
   }
 
   // READ - Get all users
-  findAll(): User[] {
-    return this.users;
+  findAll(): GetAllUserResponseDto {
+    const convertedResponse = this.mappingService.mapToDTOSync(
+      GetAllUserResponseDto,
+      this.users,
+    );
+    return convertedResponse;
   }
 
   // READ - Get user by ID
