@@ -1,5 +1,4 @@
 import { Expose } from 'class-transformer';
-import { IsEmail } from 'class-validator';
 
 export class GetAllUserResponseDto {
   @Expose()
@@ -9,7 +8,6 @@ export class GetAllUserResponseDto {
   name: string;
 
   @Expose()
-  @IsEmail()
   email: string;
 
   @Expose()
