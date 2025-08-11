@@ -4,12 +4,12 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { MappingService } from 'src/mapping/mapping.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { GetAllUserResponseDto } from './dto/get-all-user-response.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
-import { User } from './entities/user.entity';
-import { UserDataStrategy } from './interfaces/users.interface';
-import { UsersApi } from './users.api';
+import { CreateUserDto } from '../dto/create-user.dto';
+import { GetAllUserResponseDto } from '../dto/get-all-user-response.dto';
+import { UpdateUserDto } from '../dto/update-user.dto';
+import { User } from '../entities/user.entity';
+import { UsersApi } from '../users.api';
+import { UserDataStrategy } from './interfaces/users.strategy';
 
 @Injectable()
 export class RealUserDataStrategy implements UserDataStrategy {

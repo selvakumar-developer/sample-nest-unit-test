@@ -3,7 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { GetAllUserResponseDto } from './dto/get-all-user-response.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
-import { UserDataStrategy } from './interfaces/users.interface';
+import { UserDataStrategy } from './strategy/interfaces/users.strategy';
 import { USERS } from './users.decorators';
 
 @Injectable()
